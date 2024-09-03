@@ -1,3 +1,4 @@
+//Zettelkasten / slipbox note holder
 //Designed by David Herrera
 //If you find anything I produce useful. Consider sending some love.
 //venmo @davidherrera55
@@ -5,9 +6,11 @@
 //eth 0xA7315166a9ccC2682e8c25D66EA7c5e3d7563c40
 //btc bc1qvaehlavm6w3tygf8rfmkea9keumv3mzt4y8and
 
-//Zettelkasten / slipbox note holder
+
 //holder();
 //shelf();
+//divider();
+ends();
 //holder should be ~130mm wide and 215mm long for the bottom
 //holder needs to rise 20mm and hold 128mm cards
 //holder should have slots every 20mm for separators to slot in.
@@ -19,13 +22,13 @@ module holder(){
 difference(){
     union(){
             linear_extrude(4)square([134,215]);
-            translate([2,0,4])linear_extrude(4)square([130,215]);
+            translate([0,0,4])linear_extrude(4)square([134,215]);
                     //bookends
                     translate([2,0,0])linear_extrude(12)square([130,2]);
                     translate([2,213,0])linear_extrude(12)square([130,2]);
             }
             translate([3,2,4])linear_extrude(8)square([128,211]);
-            translate([7,2,0])linear_extrude(8)square([120,211]);
+            translate([12,2,0])linear_extrude(8)square([110,211]);
             //slits
             translate([2,20,2])linear_extrude(12)square([130,2]);
             translate([2,40,2])linear_extrude(12)square([130,2]);
@@ -55,4 +58,18 @@ module shelf(){
 
     }
     
+}
+
+module divider(){
+                translate([0,0,2])linear_extrude(1.8)square([130,80]);
+
+    
+}
+
+module ends(){
+    difference(){
+
+        translate([2,0,0])linear_extrude(80)square([130,5]);
+        holder();
+    }
 }

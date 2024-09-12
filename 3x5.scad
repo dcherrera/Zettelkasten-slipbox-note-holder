@@ -24,30 +24,38 @@ front_end();
 
 
 module handle(){
+    //handle() is used in front_end() 
+    //handle() renders carazy slow like 25 min slow on my macbook air m3
+    //make the hollow cylinder grip
     module grip(){
     difference(){
     cylinder(h=30,d=30,$fn=360);
     cylinder(h=30,d=25,$fn=360);        
-    }
-}
-
-module grip_end(){
+    }}
+    //make the hollow sphere for the end of the grip
+    module grip_end(){
     difference(){
     sphere(d=30,$fn=360);
     sphere(d=25,$fn=360);   
     translate([0,0,15])cube(30,center=true);     
-    }
-}
-difference(){
-union(){
-grip();
-grip_end();
-rotate([180,0,0])translate([0,0,-30])grip_end();
-}
-translate([-20,0,-15])linear_extrude(60)square(40);
-translate([0,-20,-15])linear_extrude(60)square(40);
-}
-}
+    }}
+    //this is the start of the actaul handle
+    //unfortunatly this renders crazy slow so you will need to
+    //go to https://ochafik.com/openscad2 to render it
+    //the guys running that site figured out how to make rendering 
+    //crazy fast.... or you can wait for 25 min. Its up to you. 
+    //I ain't telling you what to do with yout life.
+        difference(){
+        union(){
+        grip();
+        grip_end();
+        rotate([180,0,0])translate([0,0,-30])grip_end();
+        }
+        translate([-20,0,-15])linear_extrude(60)square(40);
+        translate([0,-20,-15])linear_extrude(60)square(40);
+        }
+        }
+
 module m3(){
     //make head slightly larger so it fits after printing
     cylinder(d=5.5,h=3,$fn=360);

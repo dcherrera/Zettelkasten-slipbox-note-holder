@@ -13,11 +13,11 @@
 //holder should have slots every 20mm for separators to slot in.
 //wall shelf sould be 135mm wide and 220mm 
 
-//holder();
+//tray();
 //shelf();
 //divider();
-//back_end();
-front_end();
+back_end();
+//front_end();
 //m3();
 //handle();
 
@@ -63,7 +63,7 @@ module m3(){
     translate([0,0,3])cylinder(d=2.8,h=5,$fn=360);
 }
 
-module holder(){
+module tray(){
 //base
 difference(){
     union(){
@@ -123,7 +123,7 @@ module back_end(){
         translate([2,-2,0])linear_extrude(80)square([130,7]);
             translate([33.5,-2,6])rotate([-90,0,0])m3();
             translate([100.5,-2,6])rotate([-90,0,0])m3();
-        holder();
+        tray();
     }
 }
 
@@ -141,6 +141,6 @@ module front_end(){
         
             translate([33.5,-2,6])rotate([-90,0,0])m3();
             translate([100.5,-2,6])rotate([-90,0,0])m3();
-        holder();
+        tray();
     }
 }
